@@ -1,0 +1,30 @@
+### GET ALL DIARIES
+
+GET http://localhost:3000/api/diary/diaries
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+
+### ADD DIARIES
+
+POST http://localhost:3000/api/diary/add
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+Content-Type: application/json
+
+{
+        "title": "The Joy of Cooking",
+        "description": "I spent the afternoon experimenting in the kitchen. I made a delicious pasta dish that turned out better than I expected!"
+}
+
+
+### UPDATE DIARY
+PUT http://localhost:3000/api/diary/update/66f813aeadebcd4995e08306
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+Content-Type: application/json
+
+{
+    "title": "The Joy of cooking"
+}
+
+### DELETE DIARY
+
+DELETE http://localhost:3000/api/diary/delete/66f813aeadebcd4995e08306
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI

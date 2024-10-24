@@ -1,0 +1,14 @@
+###Register
+
+POST http://localhost:3000/api/user/register
+
+
+###Login
+
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "username": "Mati1",
+    "password": "m123"
+}

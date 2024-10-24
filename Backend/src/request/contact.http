@@ -1,0 +1,65 @@
+
+### GET ALL CONTACTS
+GET http://localhost:3000/api/contact/get
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+
+### SET CONTACTS
+
+POST http://localhost:3000/api/contact/add
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+Content-Type: application/json
+
+{
+    "contactName": "Michael",
+    "contactSurname": "Smith",
+    "contacts": [
+        { 
+            "numberPhone": "123-123-1234", 
+            "email": "michael.smith@example.com", 
+            "location": "Seattle, USA", 
+            "socialMedia": "@michael.smith"
+        },
+        { 
+            "numberPhone": "456-456-4567", 
+            "email": "michael.smith.alt@example.com", 
+            "location": "Austin, USA", 
+            "socialMedia": "@michaelsmith.alt"
+        },
+        { 
+            "numberPhone": "789-789-7890", 
+            "email": "michael.smith.work@example.com", 
+            "location": "Miami, USA", 
+            "socialMedia": "@michael.smith.work"
+        },
+        { 
+            "numberPhone": "111-111-1111", 
+            "email": "michael.smith.personal@example.com", 
+            "location": "Denver, USA", 
+            "socialMedia": "@michael.smith.personal"
+        },
+        { 
+            "numberPhone": "222-222-2222", 
+            "email": "michael.smith.other@example.com", 
+            "location": "Phoenix, USA", 
+            "socialMedia": "@michael.smith.other"
+        }
+    ]
+}
+
+
+### UPDATE CONTACT
+
+PUT http://localhost:3000/api/contact/update/66f8125aadebcd4995e082ef
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+Content-Type: application/json
+
+{
+    "contactName": "Miguel",
+    "contactSurname": "Smiti"
+}
+
+
+### DELETE CONTACT
+DELETE http://localhost:3000/api/contact/delete/66f8125aadebcd4995e082ef
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmY0MGY4YzVlNTU4YzI1M2IwY2EzZGEiLCJ1c2VybmFtZSI6Ik1hdGkxIiwiaWF0IjoxNzI3NTMyMDkxLCJleHAiOjE3Mjc1MzU2OTF9.rwYi9hBEdmT12VqSRL5Rh1ogMZr_AzNnnMnjDUWEOGI
+
