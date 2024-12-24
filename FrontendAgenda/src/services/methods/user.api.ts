@@ -45,6 +45,16 @@ export const deleteUser = async():Promise<IUser>=>{
     }
 }
 
+export const getUserInfo = async():Promise<IUser>=>{
+    try {
+        const response = await api.get('/user/info');
+        return response.data;
+    } catch (error) {
+        console.log('Error: ' + error);
+        throw Error('Error: ' + error);
+    }
+}
+
 
 
 

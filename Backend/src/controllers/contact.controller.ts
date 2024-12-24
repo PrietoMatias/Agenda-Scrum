@@ -1,11 +1,11 @@
 import {Request, Response} from 'express';
-import { Contacts } from '../services/methods/conctactClass';
+import { ContactService } from '../services/methods/conctactClass';
 
 const addContact = async (req: Request, res: Response): Promise<void> => {
     try {
         const data = req.body;
         req.body.user = res.locals.user.userId;
-        const contact = await Contacts.addContacts(data);
+        const contact = await ContactService.addContact(data);
         if (!contact) {
             res.status(400).json({ message: 'Error adding contact' });
             return;
@@ -20,7 +20,7 @@ const updateContact = async (req: Request, res: Response): Promise<void> => {
     try {
         const id = req.params.id;
         const data = req.body;
-        const contact = await Contacts.updateContacts(id, data);
+        const contact = await ContactService.updateContact(id, data);
         if (!contact) {
             res.status(400).json({ message: 'Error updating contact' });
             return;
@@ -34,7 +34,7 @@ const updateContact = async (req: Request, res: Response): Promise<void> => {
 const deleteContacts = async (req: Request, res: Response): Promise<void> => {
     try {
         const id = req.params.id;
-        const contact = await Contacts.deleteContacts(id);
+        const contact = await ContactService.deleteContact(id);
         if (!contact) {
             res.status(404).json({ message: 'Error deleting contact' });
             return;
@@ -48,7 +48,7 @@ const deleteContacts = async (req: Request, res: Response): Promise<void> => {
 const getAllContacts = async (_req: Request, res: Response): Promise<void> => {
     try {
         const id = res.locals.user.userId;
-        const contacts = await Contacts.getAllContacts(id);
+        const contacts = await ContactService.getContacts(id);
         if (!contacts || contacts.length === 0) {
             res.status(200).json({ message: 'Nothing here... add contacts' });
             return;

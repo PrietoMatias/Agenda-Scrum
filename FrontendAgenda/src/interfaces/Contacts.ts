@@ -7,6 +7,7 @@ export interface IContactInfo{
 
 
 export interface IContact{
+    _id:string;
     contactName:string;
     contactSurname:string;
     contacts: IContactInfo[];

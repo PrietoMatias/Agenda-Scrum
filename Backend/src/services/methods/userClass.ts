@@ -40,5 +40,9 @@ export class User{
     static async updateUser(id: string, data: IUser): Promise<IUser | null> {
         return Users.findByIdAndUpdate(id, data, { new: true });
     }
+
+    static async getUserInfo(id: string): Promise<IUser | null> {
+        return Users.findById(id);
+    }
     
 }

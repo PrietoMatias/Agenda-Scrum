@@ -1,20 +1,26 @@
 import { IContact, Contact } from "../models/contact.model";
 
-export class Contacts{
-    static async addContacts(contacts:IContact):Promise<IContact>{
-        const contact = new Contact(contacts);
-        await contact.save();
-        return contact;
+export class ContactService{
+    static async addContact(contacts:IContact):Promise<IContact>{
+        const newContact = new Contact(contacts);
+        await newContact.save();
+        return newContact;
     }
-    static async getAllContacts(id: string): Promise<IContact[]> {
+    static async getContacts(id: string): Promise<IContact[]> {
         const contacts = await Contact.find({user:id});
         return contacts;
     }
     
-    static updateContacts(id:string,contacts:IContact):Promise<IContact | null>{
-        return Contact.findByIdAndUpdate(id, contacts, {new:true});
+    static updateContact(id: string, contact: IContact): Promise<IContact | null>{
+        return Contact.findByIdAndUpdate(id, contact, {new:true});
     }
-    static deleteContacts(id:string):Promise<IContact | null>{
+    /**
+     * Deletes a contact by its ID.
+     *
+     * @param {string} id - The ID of the contact to delete.
+     * @returns {Promise<IContact | null>} A promise that resolves to the deleted contact if found, or null if not found.
+     */
+    static deleteContact(id:string):Promise<IContact | null>{
         return Contact.findByIdAndDelete(id);
     }
 }

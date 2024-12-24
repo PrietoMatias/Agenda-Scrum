@@ -59,9 +59,23 @@ const updateUser = async(req:Request, res:Response):Promise<void>=>{
     }
 }
 
+const getUserInfo= async(_req:Request, res:Response):Promise<void>=>{
+    try {
+        const user = await User.getUserInfo(res.locals.user.userId);
+        if(!user) {
+            res.status(404).json({message:'User not found'});
+            return;
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({message:'Error in the server: '+error});
+    }
+}
+
 export {
     register,
     login,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserInfo
 }
