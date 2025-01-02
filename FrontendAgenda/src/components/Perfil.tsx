@@ -9,6 +9,7 @@ const Perfil = () => {
   const getData = async()=>{
     try {
       const data = await getUserInfo();
+      console.log(data)
       setUser(data);
     } catch (error) {
       console.log(error);

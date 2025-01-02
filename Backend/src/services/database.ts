@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri:string = "mongodb+srv://gentsgentleman:gentsgentleman7743@clauster1.zfn7x48.mongodb.net/Agend";
+const uri:string = "mongodb+srv://matiasprietohernan:IZlpP7hqO5o0IZiZ@cluster0.i8uuu.mongodb.net/Agend";
 
 const connection = async ():Promise<void>=>{
     try {

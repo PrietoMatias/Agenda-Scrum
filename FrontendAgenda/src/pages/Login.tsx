@@ -4,30 +4,37 @@ import * as Yup from 'yup';
 import { login } from '../services/methods/user.api';
 import { ILogin} from '../interfaces/User';
 import Register from '../components/Register';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const  navigate = useNavigate();
     const schemaValidationLogin = Yup.object({
         email: Yup.string().email('Invalid email').required('Required'),
         password: Yup.string().required('Required')
     });
 
     const [register, setRegister] = useState(false);
-    const sendData = async(form:any)=>{
+    const sendData = async (form: any) => {
         try {
             const dataValid = await schemaValidationLogin.validate(form, {
-                abortEarly: false
-            })
-           const dataParser:ILogin = dataValid as ILogin;  
-           const SendData=  await login(dataParser);
-            console.log(SendData);
+                abortEarly: false,
+            });
+            const dataParser: ILogin = dataValid as ILogin;
+    
+            // Llamada al login; si falla, salta al catch
+            await login(dataParser);
+    
+            // Navegar a /home si el login fue exitoso
+            navigate('/home');
         } catch (error) {
             if (error instanceof Yup.ValidationError) {
                 console.error('Errores de validación:', error.errors);
-              } else {
-                console.error('Error al registrar usuario:', error);
-              } 
+            } else {
+                console.error('Error al iniciar sesión:', error);
+            }
         }
-    }
+    };
+    
 
     return (
         <>

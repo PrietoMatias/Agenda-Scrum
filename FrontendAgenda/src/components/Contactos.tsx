@@ -26,7 +26,7 @@ const Contactos = () => {
     <>
     <h2>Contactos</h2>
     {
-      contactos.map((c) => (
+     Array.isArray(contactos) && contactos.length > 0 ? (contactos.map((c) => (
         <div key={c._id}>
           <h3>{c.contactName}</h3>
           <p>{c.contactSurname}</p>
@@ -40,7 +40,9 @@ const Contactos = () => {
             </div>
           ))}
         </div>
-      ))
+      ))):(
+        <h2>No hay contactos para mostrar</h2>
+      )
     }
     </>
   )

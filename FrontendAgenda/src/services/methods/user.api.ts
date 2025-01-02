@@ -12,17 +12,22 @@ export const register = async (data:IUser):Promise<IUser>=>{
     }
 };
 
-export const login = async (data: ILogin): Promise<string> => {
+export const login = async (data: ILogin): Promise<void> => {
     try {
         const response = await api.post('/user/login', data);
-        const token = response.data.result.access_token;
-        localStorage.setItem('token', token);
-        return token; 
+
+        console.log('Respuesta completa del login:', response.data);
+
+        if (response.data?.message === 'Login successful') {
+            console.log('Login exitoso, cookie seteada por el backend');
+            return;
+        }
     } catch (error) {
         console.error('Error en login:', error); 
         throw new Error('Error de inicio de sesión'); 
     }
 };
+
 
 
 export const updateUser = async (data:IUser):Promise<IUser>=>{
@@ -55,13 +60,3 @@ export const getUserInfo = async():Promise<IUser>=>{
     }
 }
 
-
-
-
-export const getToken = ()=>{
-    return localStorage.getItem('token');
-};
-
-export const logout = ()=>{
-    localStorage.removeItem('token');
-}
